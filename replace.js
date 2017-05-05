@@ -24,8 +24,10 @@ file.forEach((line, index) => {
       const options = {
         // files: '/Users/juniorboaventura/.atom/packages/apple-wwdc-2016-syntax/styles/*.less',
         // files: '/Users/juniorboaventura/.atom/packages/apple-wwdc-2016-syntax/styles/languages/*.less',
-        files: './styles/*.less',
-        files: './styles/languages/*.less',
+        files: [
+          './styles/*.less',
+          './styles/languages/*.less'
+        ],
         from:   old[i].trim(),
         to: toReplace[i].trim(),
         encoding: 'utf8',
