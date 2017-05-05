@@ -12,8 +12,6 @@ const path = './';
 
 file.forEach((line, index) => {
   const data = line.split('=>')
-  console.log(index);
-  console.log(typeof data[0])
   const old = (data[0]) ? data[0].split(',') : null
   const toReplace = (data[1]) ? data[1].split(',') : null
 
@@ -23,7 +21,7 @@ file.forEach((line, index) => {
     for (var i = 0; i < old.length; i++) {
       console.log(old[i].trim());
       console.log(toReplace[i].trim());
-      console.log('----------');
+      console.log('---');
       const options = {
         files: [
           path + 'styles/*.less',
@@ -33,15 +31,14 @@ file.forEach((line, index) => {
         to: toReplace[i].trim(),
         encoding: 'utf8',
       }
-      try {
-  let changedFiles = replace.sync(options);
-  console.log('Modified files:', changedFiles.join(', '));
-}
-catch (error) {
-  console.error('Error occurred:', error);
-}
+
+      replace(options).then(file => {
+        console.log(file, options);
+      })
+
+
     }
 
   }
-
+console.log('#####################');
 })
