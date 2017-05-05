@@ -33,11 +33,13 @@ file.forEach((line, index) => {
         to: toReplace[i].trim(),
         encoding: 'utf8',
       }
-      replace(options).then(changedFiles => {
-        console.log('Modified files:', changedFiles.join(', '));
-      }).catch(error => {
-        console.error('Error occurred:', error);
-      });
+      try {
+  let changedFiles = replace.sync(options);
+  console.log('Modified files:', changedFiles.join(', '));
+}
+catch (error) {
+  console.error('Error occurred:', error);
+}
     }
 
   }
