@@ -27,13 +27,14 @@ file.forEach((line, index) => {
           path + 'styles/*.less',
           path + 'styles/languages/*.less'
         ],
-        from:   old[i].trim(),
+        from:   RegExp(old[i].trim()),
         to: toReplace[i].trim(),
         encoding: 'utf8',
       }
 
       replace(options).then(file => {
         console.log(file, options);
+        console.log('---------');
       })
 
 
