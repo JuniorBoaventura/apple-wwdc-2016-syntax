@@ -19,9 +19,9 @@ file.forEach((line, index) => {
 
 
     for (var i = 0; i < old.length; i++) {
-      console.log(old[i].trim());
-      console.log(toReplace[i].trim());
-      console.log('---');
+      // console.log(old[i].trim());
+      // console.log(toReplace[i].trim());
+      // console.log('---');
       const options = {
         files: [
           path + 'styles/*.less',
@@ -40,5 +40,5 @@ file.forEach((line, index) => {
     }
 
   }
-console.log('#####################');
+
 })
