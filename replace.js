@@ -18,13 +18,16 @@ file.forEach((line, index) => {
 
 
     for (var i = 0; i < old.length; i++) {
+      console.log(old[i]);
+      console.log(toReplace[i]);
+      console.log('----------');
       const options = {
         // files: '/Users/juniorboaventura/.atom/packages/apple-wwdc-2016-syntax/styles/*.less',
         // files: '/Users/juniorboaventura/.atom/packages/apple-wwdc-2016-syntax/styles/languages/*.less',
         files: './styles/*.less',
         files: './styles/languages/*.less',
-        from:   old[i],
-        to: toReplace[i],
+        from:   old[i].trim(),
+        to: toReplace[i].trim(),
         encoding: 'utf8',
       }
       replace(options).then(changedFiles => {
