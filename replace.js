@@ -15,23 +15,25 @@ file.forEach((line, index) => {
   const toReplace = (data[1]) ? data[1].split(',') : null
 
   if (old && toReplace) {
-    console.log(old);
-    console.log(toReplace);
-    const options = {
-      files: '/Users/juniorboaventura/.atom/packages/apple-wwdc-2016-syntax/styles/*.less',
-      files: '/Users/juniorboaventura/.atom/packages/apple-wwdc-2016-syntax/styles/languages/*.less',
-      // files: './styles/*.less',
-      // files: './styles/languages/*.less',
-      from: old,
-      to: toReplace,
-      encoding: 'utf8',
+
+
+    for (var i = 0; i < old.length; i++) {
+      const options = {
+        // files: '/Users/juniorboaventura/.atom/packages/apple-wwdc-2016-syntax/styles/*.less',
+        // files: '/Users/juniorboaventura/.atom/packages/apple-wwdc-2016-syntax/styles/languages/*.less',
+        files: './styles/*.less',
+        files: './styles/languages/*.less',
+        from:   old[i],
+        to: toReplace[i],
+        encoding: 'utf8',
+      }
+      replace(options).then(changedFiles => {
+        console.log('Modified files:', changedFiles.join(', '));
+      }).catch(error => {
+        console.error('Error occurred:', error);
+      });
     }
 
-    replace(options).then(changedFiles => {
-      console.log('Modified files:', changedFiles.join(', '));
-    }).catch(error => {
-      console.error('Error occurred:', error);
-    });
   }
 
 })
