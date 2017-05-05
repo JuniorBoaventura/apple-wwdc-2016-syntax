@@ -7,6 +7,9 @@ const file = fs
       .toString()
       .split('\n')
 
+// const path = '/Users/juniorboaventura/.atom/packages/apple-wwdc-2016-syntax/';
+const path = './';
+
 file.forEach((line, index) => {
   const data = line.split('=>')
   console.log(index);
@@ -18,15 +21,13 @@ file.forEach((line, index) => {
 
 
     for (var i = 0; i < old.length; i++) {
-      console.log(old[i]);
-      console.log(toReplace[i]);
+      console.log(old[i].trim());
+      console.log(toReplace[i].trim());
       console.log('----------');
       const options = {
-        // files: '/Users/juniorboaventura/.atom/packages/apple-wwdc-2016-syntax/styles/*.less',
-        // files: '/Users/juniorboaventura/.atom/packages/apple-wwdc-2016-syntax/styles/languages/*.less',
         files: [
-          './styles/*.less',
-          './styles/languages/*.less'
+          path + 'styles/*.less',
+          path + 'styles/languages/*.less'
         ],
         from:   old[i].trim(),
         to: toReplace[i].trim(),
